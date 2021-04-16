@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+
+@model DoctorOffice.Models.Patient;
+
+<h2>Edit:</h2>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.PatientId)
+
+  @Html.LabelFor(model => model.NameFirst)
+  @Html.EditorFor(model => model.NameFirst)
+
+  @Html.LabelFor(model => model.NameLast)
+  @Html.EditorFor(model => model.NameLast)
+
+  @Html.LabelFor(model => model.Birthday)
+  @Html.Label("(time unimportant)")
+  @Html.EditorFor(model => model.Birthday, new { @type = "date" })
+
+  @Html.Label("Select Doctor")
+  @Html.DropDownList("DoctorId")
+
+  <input type="submit" value="Save" />
+}
+
+<p>@Html.ActionLink("Back to Patients", "Index")</p>

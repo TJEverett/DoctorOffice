@@ -1,0 +1,17 @@
+@{
+  Layout = "_Layout";
+}
+
+@model DoctorOffice.Models.Patient;
+
+<h2>Are you sure you want to delete this Patient?</h2>
+
+<p>Name: @Model.NameFirst @Model.NameLast</p>
+<p>Birthday: @Model.Birthday.ToShortDateString()</p>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" />
+}
+
+<p>@Html.ActionLink("Back to List", "Index")</p>
